@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>image process</title>
+	<script src="dist/imageprocess.min.js"></script>
+</head>
+<body>
+
+	<input id="file" type="file" name="file">
+
+	<button id="submit">compress</button>
+
+
+	<a id="link" href="#">link</a>
+
+	<canvas id="canvas"></canvas>
+
+
+	<p id="cons">
+		
+	</p>
+
+
+	<script type="text/javascript">
+
+		let ImageProcessor = new Imageprocess (
+			'http://localhost/firestart-cms/admin/media/upload',
+			{ folder: '' }
+		);	
+
+		let fileInput = document.getElementById('file');
+		fileInput.addEventListener('change', function ( event ) {
+			ImageProcessor.process ( this.files[0] )
+			.then( function( e ){
+				console.log( 'done', e );
+			});
+		});
+
+		
+	</script>
+
+</body>
+</html>
